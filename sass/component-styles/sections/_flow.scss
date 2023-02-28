@@ -1,0 +1,121 @@
+@import "../../mixins";
+@import "../../variables";
+
+.sectionTemplate.flow {
+    .flow {
+        @include flex();
+
+        .flow-item {
+            flex-grow: 1;
+            flex-basis: 0;
+            min-height: 150px;
+            color: $white;
+            padding: 20px 40px 20px 30px;
+            @include flex();
+            @include flex-justify(center);
+            @include flex-align(center);
+            @include border-radius(5px);
+            font-size: 1.8em;
+            margin: 0 7px;
+
+            &:before, &:after {
+                content: "";
+                position: absolute;
+                top: 25px;
+                border: 12px solid transparent;
+                width: 0;
+                height: 0;
+            }
+
+            &:before {
+                left: 0;
+                border-left-color: $white;
+            }
+
+            &:after {
+                right: -24px;
+            }
+
+            &:last-child {
+                margin-right: 0;
+
+                &:after {display: none;}
+            }
+
+            &:nth-child(1) {
+                background-color: $blue;
+                margin-left: 0;
+
+                &:before {display: none;}
+                &:after {
+                    border-left-color: $blue;
+                }
+            }
+            &:nth-child(2) {
+                background-color: #086DF2;
+                &:after {
+                    border-left-color: #086DF2;
+                }
+            }
+            &:nth-child(3) {
+                background-color: #18A0FF;
+                &:after {
+                    border-left-color: #18A0FF;
+                }
+            }
+            &:nth-child(4) {background-color: #6DBBFF;}
+        }
+    }
+
+    @media only screen and (max-width: 900px) {
+        .flow {
+            @include flex-wrap(wrap);
+
+            .flow-item {
+                width: 100%;
+                flex-basis: auto;
+                margin: 7px 0;
+                min-height: 80px;
+                @include flex-justify(flex-start);
+
+                &:before, &:after {
+                    top: auto;
+                    right: 25px;
+                }
+
+                &:before {
+                    left: auto;
+                    top: 0;
+                    border-color: transparent;
+                    border-top-color: $white;
+                }
+
+                &:after {
+                    bottom: -24px;
+                }
+
+                &:nth-child(1) {
+                    margin-top: 0;
+    
+                    &:before {display: none;}
+                    &:after {
+                        border-color: transparent;
+                        border-top-color: $blue;
+                    }
+                }
+                &:nth-child(2) {
+                    &:after {
+                        border-color: transparent;
+                        border-top-color: #086DF2;
+                    }
+                }
+                &:nth-child(3) {
+                    &:after {
+                        border-color: transparent;
+                        border-top-color: #18A0FF;
+                    }
+                }
+            }
+        }
+    }
+}

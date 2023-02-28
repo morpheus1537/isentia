@@ -1,0 +1,55 @@
+@import 'styles';
+
+@import 'component-styles/sections/page-head';
+@import 'component-styles/sections/enclosed-split';
+@import 'component-styles/sections/two-column';
+@import 'component-styles/sections/image-collage';
+@import 'component-styles/sections/bullets-two-column';
+@import 'component-styles/sections/content-image';
+@import 'component-styles/sections/icons-four-column';
+
+section {
+    &#story, &#timeline, &#collage, &#bullets, &#trust, &#icons {
+        background-color: $lightgrey;
+    }
+
+    &#timeline {
+        img {
+            max-width: 100%;
+        }
+
+        @media only screen and (max-width: 767px) {
+            display: none;
+        }
+    }
+
+    &#collage {
+        padding: 0;
+    }
+
+    &#social {
+        background-color: $blue;
+
+        h2, h3, h4, h5, h6, p {color: $white;}
+    }
+
+    &#unique {
+        .inner {
+            flex-direction: row-reverse;
+        }
+
+        .bullets {width: 40%;}
+
+        @media only screen and (max-width: 980px) {
+            .inner {
+                @include flex();
+                flex-direction: column-reverse;
+            }
+            .bullets {width: 100%;}
+        }
+    }
+
+    &#icons {
+        padding-top: 0;
+    }
+}

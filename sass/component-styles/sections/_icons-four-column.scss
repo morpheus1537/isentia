@@ -1,0 +1,62 @@
+@import "../../mixins";
+
+.sectionTemplate.iconsFourColumn {
+    .blocks {
+        @include flex();
+        @include flex-wrap(wrap);
+        @include flex-justify(space-between);
+        margin-top: 60px;
+    }
+
+    .iconBlock:first-child:nth-last-child(2),
+    .iconBlock:first-child:nth-last-child(2) ~ .iconBlock {
+        width: 50%;
+    }
+
+    .iconBlock:first-child:nth-last-child(3),
+    .iconBlock:first-child:nth-last-child(3) ~ .iconBlock {
+        width: 33.3333%;
+    }
+
+    .iconBlock:first-child:nth-last-child(4),
+    .iconBlock:first-child:nth-last-child(4) ~ .iconBlock {
+        width: 25%;
+        max-width: 260px;
+    }
+
+    .iconBlock {
+        padding: 0 20px 0 86px;
+        background-repeat: no-repeat;
+        background-position: left top;
+
+        span {
+            font-size: 1.3em;
+        }
+    }
+
+    @media only screen and (max-width: 980px) {
+        .blocks {
+            @include flex-justify(space-around);
+        }
+
+        .iconBlock:first-child:nth-last-child(4),
+        .iconBlock:first-child:nth-last-child(4) ~ .iconBlock {
+            width: 45%;
+            max-width: none;
+            margin: 0 2% 8%;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .iconBlock:first-child:nth-last-child(2),
+        .iconBlock:first-child:nth-last-child(2) ~ .iconBlock,
+        .iconBlock:first-child:nth-last-child(3),
+        .iconBlock:first-child:nth-last-child(3) ~ .iconBlock,
+        .iconBlock:first-child:nth-last-child(4),
+        .iconBlock:first-child:nth-last-child(4) ~ .iconBlock {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 0 8%;
+        }
+    }
+}

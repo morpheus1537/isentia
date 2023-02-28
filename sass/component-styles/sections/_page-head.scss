@@ -1,0 +1,63 @@
+@import "../../mixins";
+
+.sectionTemplate.pageHead {
+    .inner {
+        @include flex();
+        @include flex-justify(space-between);
+        @include flex-align(flex-end);
+
+        > div {
+            width: 45%;
+        }
+    }
+
+    &.border {
+        .inner {
+            border-bottom: 1px solid $midgrey;
+            padding-bottom: 70px;
+        }
+    }
+
+    h1 {
+        font-size: 4em;
+    }
+
+    .contentBlock {
+        p, a {font-size: 2em;}
+    }
+
+    .textCta {
+        margin-right: 70px;
+        margin-bottom: 15px;
+    }
+
+    @media only screen and (max-width: 980px) {
+        .inner {
+            display: block;
+
+            > div {width: 100%;}
+        }
+
+        h1 {
+            @include viewport(font-size, 40, 980);
+        }
+
+        .contentBlock {
+            p, a {
+                @include viewport(font-size, 20, 980);
+            }
+        }
+    }
+
+    @media only screen and (max-width: 785px) {
+        h1 {
+            font-size: 3em;
+        }
+
+        .contentBlock {
+            p, a {
+                font-size: 1.6em;
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@import "../../mixins";
+
+.sectionTemplate.logoStrip {
+    .logoBar {
+        @include flex();
+        @include flex-justify(space-between);
+
+        > div {
+            width: 16%;
+            @include flex();
+            @include flex-justify(center);
+            @include flex-align(center);
+        }
+
+        img {
+            max-width: 80%;
+        }
+
+        @media only screen and (max-width: 1140px) {
+            @include flex-wrap(wrap);
+            max-width: 550px;
+            margin: 0 auto;
+
+            > div {
+                width: 33%;
+                margin: 10px auto;
+            }
+        }
+    }
+}

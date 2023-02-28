@@ -1,0 +1,65 @@
+@import "../../mixins";
+
+.sectionTemplate.bulletsTwoColumn {
+    .inner {
+        @include flex();
+        @include flex-wrap(wrap);
+        @include flex-justify(space-between);
+    }
+
+    h4.main {
+        width: 100%;
+        padding-right: 50%;
+    }
+
+    .contentBlock {
+        width: 40%;
+    }
+
+    .bullets {
+        width: 50%;
+
+        li {
+            padding-left: 30px;
+            background: url(../images/global/bullet-tick.svg) no-repeat left top 4px / 20px 20px;
+            font-size: 1em;
+            line-height: 1;
+
+            p {
+                color: $dark;
+                margin-bottom: 25px;
+            }
+
+            strong {
+                font-size: 2em;
+                line-height: 0.5em;
+                font-weight: 900;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 980px) {
+        .inner {
+            display: block;
+
+            > div {width: 100%;}
+        }
+    }
+
+    @media only screen and (max-width: 700px) {
+        h4.main {
+            padding-right: 0;
+        }
+        
+        .bullets {
+            li {
+                p {
+                    margin-bottom: 15px;
+                }
+                strong {
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
+}

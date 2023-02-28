@@ -1,0 +1,113 @@
+@import "../../mixins";
+@import "../success-tick";
+
+.sectionTemplate.pageHeadForm {
+    min-height: 800px;
+    padding: 0;
+
+    .inner {
+        @include flex();
+        @include flex-justify(space-between);
+        @include flex-align(center);
+        min-height: 800px;
+
+        > div {
+            width: 45%;
+        }
+    }
+
+    &.border {
+        .inner {
+            border-bottom: 1px solid $midgrey;
+            padding-bottom: 70px;
+        }
+    }
+
+    h1 {
+        font-size: 4em;
+    }
+
+    .contentBlock {
+        p, a {font-size: 2em;}
+    }
+
+    .formContainer {
+        max-width: 580px;
+        background-color: $white;
+        @include border-radius(10px);
+        box-shadow: 0 0 50px 0 rgba(26,26,26,0.19);
+        padding: 50px 60px;
+        @include transition(0.4s);
+        margin: 0 0 60px;
+
+        form.hide {
+            @include opacity(0);
+            z-index: -1;
+        }
+
+        h1.form-title {
+            font-size: 1.4em;
+            text-transform: uppercase;
+            color: $grey;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-family: $body-font;
+        }
+
+        .formSuccess {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+            z-index: -1;
+            @include opacity(0);
+            @include transition(0.4s);
+
+            &.active {
+                z-index: 1;
+                @include opacity(1);
+            }
+
+            .componentSuccessTick {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 980px) {
+        .inner {
+            display: block;
+
+            > div {
+                width: 100%; 
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        h1 {
+            @include viewport(font-size, 40, 980);
+        }
+
+        .contentBlock {
+            p, a {
+                @include viewport(font-size, 20, 980);
+            }
+        }
+    }
+
+    @media only screen and (max-width: 785px) {
+        h1 {
+            font-size: 3em;
+        }
+
+        .contentBlock {
+            p, a {
+                font-size: 1.6em;
+            }
+        }
+    }
+}

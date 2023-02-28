@@ -1,0 +1,48 @@
+@import "../../mixins";
+@import "../../variables";
+
+.sectionTemplate.columnContent {
+    .columns {
+        @include flex();
+        margin-top: 40px;
+
+        .column {
+            flex-grow: 1;
+            flex-basis: 0;
+            @include flex();
+            @include flex-wrap(wrap);
+            @include flex-align(flex-end);
+            @include flex-justify(center);
+
+            img {max-width: 100%;}
+
+            span {
+                font-size: 1.8em;
+                text-align: center;
+                display: block;
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 850px) {
+        .columns {
+            @include flex-wrap(wrap);
+
+            .column {
+                flex-basis: auto;
+                width: 50%;
+                margin-bottom: 40px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 850px) {
+        .columns {
+            .column {
+                width: 100%;
+            }
+        }
+    }
+}

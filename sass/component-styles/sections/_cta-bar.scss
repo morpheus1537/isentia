@@ -1,0 +1,56 @@
+@import "../../mixins";
+
+.sectionTemplate.ctaBar {
+    padding-top: 0;
+
+    .inner {
+        @include flex();
+        @include flex-justify(space-between);
+        border-top: 1px solid $midgrey;
+        padding-top: 70px;
+    }
+
+    .buttons {
+        @include flex();
+        @include flex-align(center);
+
+        .ibtn {
+            margin-left: 25px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+
+    h3 {color: $blue;}
+
+    &.single {
+        .inner {
+            display: block;
+            text-align: center;
+        }
+
+        .buttons {
+            @include flex-justify(center);
+        }
+    }
+
+    @media only screen and (max-width: 700px) {
+        .inner {
+            display: block;
+        }
+    }
+
+    @media only screen and (max-width: 400px) {
+        .buttons {
+            display: block;
+
+            .ibtn {
+                margin-left: 0;
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

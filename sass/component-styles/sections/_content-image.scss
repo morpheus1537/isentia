@@ -1,0 +1,65 @@
+@import "../../mixins";
+
+.sectionTemplate.contentImage {
+    .inner {
+        @include flex();
+        @include flex-justify(space-between);
+        @include flex-align(center);
+
+        > div {
+            width: 45%;
+        }
+    }
+
+    .contentBlock {
+        li {
+            color: $body-copy;
+            padding-left: 30px;
+            background: url(../images/global/bullet-tick.svg) no-repeat left top 4px / 20px 20px;
+            margin-bottom: 30px;
+
+            strong {
+                color: $blue;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .visual {
+        text-align: center;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    &.imageOverflow {
+        overflow: visible;
+        z-index: 1;
+        
+        .visual {
+            img {
+                margin: -100px 0;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 980px) {
+        padding: 60px 0;
+        
+        .inner {
+            display: block;
+
+            > div {width: 100%;}
+        }
+
+        &.imageOverflow {
+            .visual {
+                img {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.edit-divi .media-frame-content, .edit-divi .media-modal-content .media-frame-tab-panel .media-frame-content {
+    bottom: auto;
+    overflow: visible;
+}
+.edit-divi  .attachments-browser, .edit-divi .media-frame .attachments-browser {
+    overflow: visible;
+}
+.edit-divi .media-toolbar, .media-toolbar {
+    padding-top: 50px;
+}
+
+.edit-divi .attachments-wrapper, .edit-divi .media-frame .attachments-browser .attachments-wrapper {
+    padding-top: 50px;
+    overflow: visible;
+}
+

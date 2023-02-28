@@ -1,0 +1,187 @@
+@import 'styles';
+
+@import 'component-styles/sections/page-head';
+@import 'component-styles/sections/page-head-image';
+@import 'component-styles/sections/content-image';
+@import 'component-styles/sections/content-testimonial';
+@import 'component-styles/sections/bullets-two-column';
+@import 'component-styles/sections/two-column';
+@import 'component-styles/sections/two-block-content';
+@import 'component-styles/sections/centered-content';
+@import 'component-styles/sections/column-content';
+@import 'component-styles/sections/icons-four-column';
+@import 'component-styles/sections/showcase-image';
+@import 'component-styles/sections/testimonial';
+@import 'component-styles/sections/latest-reads';
+@import 'component-styles/sections/cta-bar';
+@import 'component-styles/sections/flow';
+
+section {
+    background-color: transparent;
+
+    .inner {
+        flex-direction: row;
+    }
+
+    &.pageHead {
+        p {margin-bottom: 25px;} // Match the headline
+    }
+
+    &.reverse {
+        background-color: $lightgrey;
+
+        .inner {
+            flex-direction: row-reverse;
+        }
+    }
+
+    &.override-alignment {
+        .inner {
+            flex-direction: row;
+        }
+
+        &.reverse {
+            .inner {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+
+    &.override-background {
+        background-color: transparent;
+
+        &.reverse {
+            background-color: $lightgrey;
+        }
+    }
+
+    &.contentImage {
+        .visual {
+            img {
+                max-width: 110%;
+            }
+        }
+    }
+
+    &.sectionTemplate.iconsFourColumn {
+        .iconBlock {
+            h5 {
+                font-weight: 700;
+                line-height: 1.4em;
+            }
+
+            > span {
+                font-size: 1em;
+            }
+
+            p {
+                font-size: 1.4em;
+            }
+        }
+    }
+
+    &#impacts.sectionTemplate.iconsFourColumn {
+        .iconBlock:first-child:nth-last-child(2),
+        .iconBlock:first-child:nth-last-child(2) ~ .iconBlock {
+            width: 45%;
+        }
+
+        .iconBlock:first-child:nth-last-child(3),
+        .iconBlock:first-child:nth-last-child(3) ~ .iconBlock {
+            width: 30%;
+            @media only screen and (max-width: 980px) {
+                width: 45%;
+            }
+            @media only screen and (max-width: 650px) {
+                width: 100%;
+            }
+        }
+
+        .iconBlock:first-child:nth-last-child(4),
+        .iconBlock:first-child:nth-last-child(4) ~ .iconBlock {
+            width: 22%;
+        }
+
+        .iconBlock {
+            padding: 75px 0 0;
+
+            h5 {
+                font-weight: 700;
+                line-height: 1.4em;
+            }
+
+            > span {
+                font-size: 1em;
+            }
+
+            p {
+                font-size: 1.4em;
+            }
+        }
+    }
+
+    &#monitor-hero {
+        img {
+            margin-bottom: -100px;
+            @include transform(translateX(-50%));
+            left: 60%;
+
+            @media only screen and (max-width: 980px) {
+                max-width: 100%;
+                left: 50%;
+            }
+        }
+    }
+
+    #activate-hero {
+        .inner {
+            padding-bottom: 0;
+        }
+
+        .contentBlock {
+            padding-bottom: 30px;
+        }
+    }
+
+    &#design, &#products-services, &#modules {
+        background-color: $blue;
+
+        h3, h4, h5, h6, p, span {
+            color: $white;
+        }
+    }
+
+    &#full-story {
+        .visual img {
+            margin: -200px 0 0;
+        }
+
+        @media only screen and (max-width: 980px) {
+            .visual img {
+                margin : 0
+            }
+        }
+    }
+
+    &#awards-header {
+        h2 {
+            font-size: 12em;
+        }
+
+        @media only screen and (max-width: 900px) {
+            h2 {
+                @include viewport(font-size, 120, 900);
+            }
+        }
+
+        @media only screen and (max-width: 550px) {
+            h2 {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    &#social-graphs {
+        background-color: $lightgrey;
+    }
+}

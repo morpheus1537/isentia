@@ -1,0 +1,347 @@
+@import "_variables";
+@import "_mixins";
+
+* {
+    @include box-sizing();
+    position: relative;
+}
+
+html {background-color: $dark;}
+
+body{
+    font-family: $body-font;
+}
+
+.inner {
+    max-width: $container-max-width;
+    width: $container-width;
+    margin: 0 auto;
+}
+
+h1, .h1 {
+    font-family: $feature-font;
+    font-size: 55px;
+    color: $dark;
+    margin-bottom: 25px;
+
+    @media only screen and (max-width: 980px) {
+        @include viewport(font-size, 55, 980);
+    }
+
+    @media only screen and (max-width: 540px) {
+        font-size: 30px;
+        line-height: 1.3em;
+    }
+}
+
+h2, .h2 {
+    font-family: $feature-font;
+    font-size: 45px;
+    color: $dark;
+    margin-bottom: 60px;
+
+    @media only screen and (max-width: 980px) {
+        @include viewport(font-size, 45, 980);
+    }
+
+    @media only screen and (max-width: 550px) {
+        font-size: 25px;
+        line-height: 1.3em;
+    }
+}
+
+h3, .h3 {
+    font-family: $feature-font;
+    font-size: 35px;
+    color: $dark;
+    margin-bottom: 25px;
+
+    @media only screen and (max-width: 980px) {
+        @include viewport(font-size, 35, 980);
+    }
+
+    @media only screen and (max-width: 620px) {
+        font-size: 22px;
+        line-height: 1.3em;
+    }
+}
+
+h4, .h4 {
+    font-family: $feature-font;
+    font-size: 30px;
+    color: $dark;
+    margin-bottom: 20px;
+}
+
+h5, .h5 {
+    font-family: $body-font;
+    font-size: 17px;
+    color: $dark;
+    margin-bottom: 20px;
+
+    &.large {
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
+
+h6, .h6 {
+    font-family: $body-font;
+    font-size: 11px;
+    color: $grey;
+    text-transform: uppercase;
+}
+
+p, li {
+    font-size: 1.8em;
+    line-height: 1.5em;
+    color:$body-copy;
+
+    @media only screen and (max-width: 900px) {
+        @include viewport(font-size, 18, 900);
+    }
+
+    @media only screen and (max-width: 700px) {
+        font-size: 1.4em;
+        line-height: 1.8em;
+    }
+}
+
+p, ul {margin-bottom: 40px;}
+
+a {
+    @include transition(0.3s);
+    color: $primarylink;
+    text-decoration: none;
+
+    &:hover {
+        color: $primarylinkhover;
+    }
+}
+
+img {
+    &.aligncenter {
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+.textCta {
+    font-size: 16px;
+    display: inline-block;
+    color: $blue;
+    cursor: pointer;
+    padding-right: 20px;
+
+    &:after {
+        content: '\f061';
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        padding-left: 10px;
+        @include transition(0.3s);
+        position: relative;
+        right: 0;
+        top: 50%;
+        height: 16px;
+        @include transform(translateY(-50%));
+    }
+
+    &:hover {
+        color: $darkblue;
+        
+        &:after {
+            right: -10px;
+        }
+    }
+
+    &.reverse {
+        padding-right: 0;
+        padding-left: 20px;
+
+        &:before {
+            content: '\f060';
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            padding-right: 10px;
+            @include transition(0.3s);
+            position: relative;
+            left: 0;
+            top: 50%;
+            @include transform(translateY(-50%));
+        }
+
+        &:after {display: none;}
+
+        &:hover {
+            &:after {
+                left: -10px;
+            }
+        }
+    }
+}
+
+.ibtn {
+    font-size: 1.6em;
+    line-height: 1;
+    padding: 15px 20px 14px;
+    min-width: 85px;
+    @include border-radius(5px);
+    display: inline-block;
+    @include box-sizing();
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:after {
+        display: none;
+    }
+
+    &.large {
+        padding: 21px 20px;
+    }
+
+    &.primary {
+        background-color: $blue;
+        color: $white;
+
+        &:hover {
+            background-color: $darkblue;
+        }
+
+        &.alt {
+            background-color: $white;
+            color: $blue;
+
+            &:hover {
+                background-color: $lightgrey;
+            }
+        }
+    }
+
+    &.secondary {
+        color: $blue;
+        border: 1px solid $blue;
+        padding: 14px 19px 13px;
+
+        &:hover {
+            background-color: $blue;
+            color: $white;
+        }
+
+        &.alt {
+            color: $white;
+            border-color: $white;
+
+            &:hover {
+                background-color: $white;
+                color: $blue;
+            }
+        }
+
+        &.large {
+            padding: 20px 19px;
+        }
+    }
+}
+
+form {
+    &.mktoForm {
+        width: 100% !important; // Override marketo inline
+
+        .mktoFormCol {width: 100%;}
+        .mktoOffset, .mktoGutter {display: none;}
+
+        .mktoFieldWrap {
+            width: 100%;
+            margin-bottom: 45px;
+
+            label {
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: $body-copy;
+                width: 100% !important; // Override marketo inline
+                font-weight: 400 !important; // Override marketo weight
+                display: block;
+                @include transition(0.3s);
+            }
+
+            input[type=text], input[type=email], input[type=tel], textarea {
+                border: none;
+                border-bottom: 1px solid $midgrey;
+                font-size: 1.23em; // 16px
+                outline: none;
+                background: none;
+                width: 100% !important; // Override marketo inline
+                padding: 8px 0;
+                @include transition(0.3s);
+
+                &:focus {
+                    border-bottom-color: $blue;
+                }
+            }
+
+            textarea {
+                height: 40px;
+                @include transition(0.4s);
+
+                &:focus {
+                    height: calc(40px * 4);
+                }
+            }
+
+            &.dirty {
+                label {
+                    font-size: 0.9em;
+                    top: -16px;
+                }
+
+                textarea {
+                    height: calc(40px * 4);
+                }
+            }
+        }
+
+        .mktoButtonRow {
+            width: 100%;
+            text-align: right;
+        }
+
+        .mktoButtonWrap {
+            margin: 0 !important; // Override marketo inline
+        }
+
+        .mktoButton {
+            border: none;
+            @extend .textCta;
+            color: $blue;
+            background-color: transparent;
+            cursor: pointer;
+            padding-top: 0;
+            padding-left: 0;
+            padding-bottom: 0;
+        }
+    }
+}
+
+section {
+    padding: 60px 0;
+    overflow: hidden;
+
+    @media only screen and (max-width: 980px) {
+        padding: 30px 0;
+    }
+}
+
+#page {
+    padding-top: 154px;
+    background-color: $white;
+
+    &.thin {
+        padding-top: 0px;
+
+        @media only screen and (max-width: 980px) {
+            padding-top: 0;
+        }
+    }
+}

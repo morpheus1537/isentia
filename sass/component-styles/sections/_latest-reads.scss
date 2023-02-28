@@ -1,0 +1,71 @@
+@import "../../mixins";
+
+.sectionTemplate.latestReads {
+
+    + section {
+        .inner {
+            border-top: none;
+        }
+    }
+
+    .articles {
+        @include flex();
+        @include flex-justify(space-between);
+
+        .component-item {
+            min-height: 395px;
+            width: 30%;
+            @include border-radius(5px);
+            @include flex();
+            @include flex-align(flex-end);
+            @include flex-justify(flex-end);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            
+            .contentBlock {
+                @include border-radius(5px 0 0 0);
+                padding: 25px 30px 40px 30px;
+                width: 75%;
+                background-color: $white;
+
+                h6 {
+                    margin-bottom: 15px;
+                }
+            }
+
+            a {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 980px) {
+        .articles {
+            @include flex-wrap(wrap);
+            
+            .component-item {
+                width: 48%;
+                &:last-child {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    // TODO: Create slider functionality at this size an lower
+    @media only screen and (max-width: 700px) {
+        .articles .component-item {
+            width: 100%;
+
+            &:nth-child(2), &:last-child {
+                display: none;
+            }
+        }
+    }
+}

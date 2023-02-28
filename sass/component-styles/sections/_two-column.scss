@@ -1,0 +1,19 @@
+@import "../../mixins";
+
+.sectionTemplate.twoColumn {
+    .contentBlock {
+        column-count: 2;
+        column-gap: 8%;
+        column-fill: auto;
+    }
+
+    h3 {max-width: 500px;}
+
+    @media only screen and (max-width: 980px) {
+        h3 {max-width: 100%;}
+        
+        .contentBlock {
+            column-count: 1;
+        }
+    }
+}

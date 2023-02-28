@@ -1,0 +1,153 @@
+@import "../../mixins";
+
+.sectionTemplate.contentTestimonial {
+    z-index: 2;
+    overflow: visible;
+    padding-bottom: 60px !important;
+
+    .inner {
+        @include flex();
+        @include flex-justify(space-between);
+        @include flex-align(center);
+    }
+
+    .contentBlock {
+        width: 45%;
+    }
+
+    .testimonial {
+        width: 50%;
+        max-width: 550px;
+
+        .card {
+            @include border-radius(10px);
+            box-shadow: 0 0 50px 0 rgba(26,26,26,0.19);
+            margin-bottom: -150px;
+
+            .image {
+                min-height: 280px;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                @include border-radius(10px 10px 0 0);
+            }
+
+            .quote {
+                padding: 50px 80px;
+                background-color: $white;
+                @include border-radius(0 0 10px 10px);
+
+                .text {
+                    color: $blue;
+                    font-family: $feature-font;
+                    display: block;
+                    margin-bottom: 30px;
+
+                    &.small {font-size: 2em;}
+                    &.medium {font-size: 2.5em;}
+                    &.large {font-size: 3em;}
+
+                    &:before {
+                        content: '';
+                        display: block;
+                        background: url(../images/global/top-quotemark.svg) no-repeat center / cover;
+                        width: 22px;
+                        height: 20px;
+                    }
+
+                    &:after {
+                        content: "”";
+                    }
+                }
+
+                .author {
+                    display: block;
+                    font-size: 1.8em;
+                    color: $body-copy;
+                    margin-bottom: 5px;
+                }
+
+                .position {
+                    display: block;
+                    font-size: 1.3em;
+                    font-style: italic;
+                    color: $body-copy;
+                }
+            }
+        }
+    }
+
+    + section {
+        padding: 110px 0 120px;
+        z-index: 1;
+    }
+
+    @media only screen and (max-width: 980px) {
+        padding: 60px 0;
+        
+        .inner {
+            display: block;
+
+            > div {width: 100%;}
+        }
+
+        .testimonial {
+            margin: 0 auto;
+
+            .card {
+                .quote {
+                    padding: 30px 40px;
+
+                    .text {
+                        &.small {@include viewport(font-size, 20, 980);}
+                        &.medium {@include viewport(font-size, 25, 980);}
+                        &.large {@include viewport(font-size, 30, 980);}
+                    }
+                }
+            }
+        }
+
+        + section {
+            padding-top: 170px;
+        }
+    }
+
+    @media only screen and (max-width: 880px) {
+        .testimonial {
+            .card {
+                .quote {
+                    .text {
+                        &.small {font-size: 1.8em;}
+                        &.medium {font-size: 1.8em;}
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 750px) {
+        .testimonial {
+            .card {
+                .quote {
+                    .text {
+                        &.large {font-size: 2.2em;}
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 550px) {
+        .testimonial {
+            .card {
+                .image {
+                    @include viewport(min-height, 280, 550);
+                }
+
+                .quote {
+                    padding: 30px 40px;
+                }
+            }
+        }
+    }
+}

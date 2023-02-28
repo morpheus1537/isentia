@@ -1,0 +1,28 @@
+@import "../../mixins";
+
+.sectionTemplate.twoBlockContent {
+    .inner {
+        @include flex();
+        @include flex-justify(space-between);
+    }
+
+    .contentBlock {
+        width: 47%;
+
+        li {
+            color: $body-copy;
+            padding-left: 30px;
+            background: url(../images/global/bullet-tick.svg) no-repeat left top 4px / 20px 20px;
+            margin-bottom: 30px;
+        }
+
+        img {max-width: 100%; height: auto;}
+    }
+
+    @media only screen and (max-width: 980px) {
+        .inner {display: block;}
+        .contentBlock {
+            width: 100%;
+        }
+    }
+}

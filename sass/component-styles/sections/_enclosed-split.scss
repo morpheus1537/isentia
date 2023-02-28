@@ -1,0 +1,51 @@
+@import "../../mixins";
+@import "../../variables";
+
+.sectionTemplate.enclosedSplit {
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60%;
+        background-color: $lightgrey;
+    }
+    .inner {
+        background-color: $blue;
+        @include border-radius(10px);
+        overflow: hidden;
+        @include flex();
+        z-index: 1;
+
+        > div {width: 50%;}
+    }
+
+    .visual {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .contentBlock {
+        padding: 80px 120px 80px 80px;
+        
+        h2, h3, h4, h5, h6, p {color: $white;}
+    }
+
+    @media only screen and (max-width: 980px) {
+        .inner {
+            @include flex-wrap(wrap);
+
+            > div {width: 100%;}
+        }
+
+        .visual {
+            min-height: 70vw;
+        }
+
+        .contentBlock {
+            padding: 30px;
+        }
+    }
+}

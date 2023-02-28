@@ -1,0 +1,116 @@
+@import "_variables";
+@import "_mixins";
+
+
+
+
+
+
+
+/* Case Study
+--------------------------------------------- */
+.single .ibtn {
+    margin-bottom: 1em;
+}
+
+/* Video
+--------------------------------------------- */
+
+.videowrap {
+	position: relative;
+	padding-bottom: 55.25%; /* 16:9 */
+	height: 0;
+}
+.videowrap iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+
+/* Modals
+--------------------------------------------- */
+.modal-open {
+    overflow: hidden;
+}		
+.modal {
+    position: fixed;
+    z-index: 999;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+}
+.modal .overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    background:$dark;
+    opacity:0.9;
+
+}
+.modal .outer-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+	z-index: 1;
+	padding: 7em 3em;
+	@include box-sizing();
+}
+.modal .content {
+    background:#FFF;
+    position: relative;
+    z-index: 999;
+    margin:auto;
+    width:90%;
+    max-width:60em;
+    @include border-radius(5px);
+    overflow:hidden;
+}
+.modal .caption {
+	padding: 3em 3em 0em 3em;
+}
+@media (min-width:768px){
+	.modal .content {
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+
+	}
+	
+}
+
+a.close-modal {
+    width: 3em;
+    height: 3em;
+    text-indent: -9999px;
+    overflow: hidden;
+    top: 3em;
+    right: 3em;
+    position: absolute;
+    background: url(../images/global/cross.svg) no-repeat center center;
+    z-index: 4;
+}
+
+
+
+.modal {
+	opacity: 0;
+	pointer-events: none;
+	transition: 1s;
+}
+.modal.active {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+

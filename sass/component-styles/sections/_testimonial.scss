@@ -1,0 +1,143 @@
+@import "../../mixins";
+
+.sectionTemplate.testimonial {
+    background: $darkblue; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  $darkblue 0%, $blue 100%);
+    background: -webkit-linear-gradient(-45deg,  $darkblue 0%,$blue 100%);
+    background: linear-gradient(135deg,  $darkblue 0%,$blue 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$darkblue', endColorstr='$blue',GradientType=1 );
+    overflow: visible;
+    z-index: 1;
+
+    .inner {
+        @include flex();
+        @include flex-justify(space-between);
+        @include flex-align(center);
+    }
+
+    .testimonials {width: 100%;}
+
+    .testimonial {
+        @include flex();
+        @include flex-justify(space-between);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        @include opacity(0);
+        @include transition(0.8s);
+
+        &.active {
+            position: relative;
+            z-index: 1;
+            @include opacity(1);
+        }
+    }
+
+    .image {
+        width: 46%;
+
+        img {max-width: 100%;}
+    }
+
+    .contentBlock {
+        color: $white;
+        width: 80%;
+        margin: 0 auto;
+
+        .quote {
+            font-family: $feature-font;
+            display: block;
+            margin-bottom: 30px;
+            font-size: 3em;
+
+            &:before {
+                content: '';
+                display: block;
+                background: url(../images/global/top-quotemark-white.svg) no-repeat center / cover;
+                width: 22px;
+                height: 20px;
+                margin-bottom: 10px;
+            }
+
+            &:after {
+                content: "”";
+            }
+        }
+
+        .author {
+            display: block;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .position {
+            font-style: italic;
+            font-size: 1.3em;
+        }
+
+        .navigation {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+
+            span {
+                @include border-radius(45px);
+                width: 45px;
+                height: 45px;
+                line-height: 45px;
+                color: $white;
+                background-color: rgba($white, 0.1);
+                margin-right: 10px;
+                display: inline-block;
+                text-align: center;
+                cursor: pointer;
+                @include transition(0.3s);
+
+                &:hover {
+                    background-color: rgba($white, 0.3);
+                }
+            }
+        }
+    }
+
+    .image + .contentBlock {
+        width: 40%;
+        margin: 0;
+    }
+
+    @media only screen and (max-width: 1200px) {
+        .contentBlock {
+            .quote {
+                @include viewport(font-size, 30, 1200);
+            }
+        }
+    }
+
+    @media only screen and (max-width: 900px) {
+        padding: 60px 0;
+
+        .inner {
+            @include flex-wrap(wrap);
+            flex-direction: column-reverse;
+        }
+
+        .image {display: none;}
+
+        .contentBlock, .image + .contentBlock {
+            width: 100%;
+
+            .quote {
+                @include viewport(font-size, 30, 900);
+            }
+        }
+    }
+
+    @media only screen and (max-width: 660px) {
+        .contentBlock {
+            .quote {
+                font-size: 2.2em;
+            }
+        }
+    }
+}

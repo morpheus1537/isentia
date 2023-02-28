@@ -1,0 +1,247 @@
+@import 'styles';
+
+@import 'component-styles/sections/page-head';
+@import 'component-styles/sections/page-head-image';
+@import 'component-styles/sections/content-image';
+@import 'component-styles/sections/content-testimonial';
+@import 'component-styles/sections/bullets-two-column';
+@import 'component-styles/sections/two-column';
+@import 'component-styles/sections/two-block-content';
+@import 'component-styles/sections/centered-content';
+@import 'component-styles/sections/column-content';
+@import 'component-styles/sections/icons-four-column';
+@import 'component-styles/sections/showcase-image';
+@import 'component-styles/sections/testimonial';
+@import 'component-styles/sections/latest-reads';
+@import 'component-styles/sections/cta-bar';
+@import 'component-styles/sections/flow';
+
+section {
+    &#featured-posts {
+        .featured-items {
+            @include flex();
+            @include flex-justify(space-between);
+
+            .featured-item {
+                width: 48%;
+                padding: 20px 20px 30px 35px;
+                @include border-radius(10px);
+                background-color: $lightgreen;
+                box-shadow: 0 0 6px 0 rgba(26,26,26,.19);
+                @include flex();
+                @include flex-justify(space-between);
+                flex-direction: row-reverse;
+
+                .contentBlock {
+                    width: 45%;
+                }
+
+                .visual {
+                    width: 50%;
+                    height: 100%;
+                    min-height: 245px;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                }
+
+                a {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        @media only screen and (max-width: 980px) {
+            .featured-items {
+                display: block;
+
+                .featured-item {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .featured-items {
+                .featured-item {
+                    @include flex-wrap(wrap);
+
+                    .contentBlock, .visual {
+                        width: 100%;
+                    }
+
+                    .contentBlock {
+                        margin-top: 40px;
+                    }
+                }
+            }
+        }
+    }
+
+    #filterBar {
+        @include flex();
+        @include flex-justify(space-between);
+        @include flex-wrap(wrap);
+
+        .filters {
+            padding-bottom: 20px;
+            margin-right: 30px;
+
+            .filter {
+                color: $blue;
+                font-size: 1.4em;
+                padding: 8px 10px 7px;
+                cursor: pointer;
+                display: inline-block;
+
+                span:after {
+                    content: '';
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: $blue;
+                    margin-top: 0;
+                    @include opacity(0);
+                    @include transition(0.3s);
+                }
+    
+                &:hover {
+                    span:after {
+                        margin-top: 2px;
+                        @include opacity(1);
+                    }
+                }
+
+                &.active {
+                    background-color: $blue;
+                    color: $white;
+                }
+            }
+        }
+
+        .socials {
+            font-size: 1.4em;
+            color: $body-copy;
+            top: -3px;
+
+            a {
+                color: $body-copy;
+                margin-left: 15px;
+                font-size: 1.4em;
+
+                &:hover {
+                    color: $grey;
+                }
+            }
+        }
+    }
+
+    &#all-posts {
+        .articles {
+            display: grid;
+            grid-template-columns: 22% 22% 22% 22%;
+            grid-column-gap: 4%;
+            grid-row-gap: 70px;
+            margin-top: 40px;
+
+            .category-item {
+
+                .visual {
+                    width: 100%;
+                    min-height: 170px;
+                    @include border-radius(5px);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                }
+
+                .contentBlock {
+                    margin-top: 20px;
+
+                    h5 {
+                        margin-bottom: 0;
+                    }
+                }
+
+                a {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &:first-child {
+                    grid-column: 1 / span 2;
+                    grid-row: 1 / span 2;
+
+                    .visual {
+                        min-height: 447px;
+                    }
+                }
+            }
+        }
+
+        #loader {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 980px) {
+            .articles {
+                grid-template-columns: 48% 48%;
+
+                .category-item:first-child {
+                    .visual {
+                        min-height: 280px;
+                    }
+                }
+            }
+        }
+
+        @media only screen and (max-width: 550px) {
+            .articles {
+                display: block;
+
+                .category-item {
+                    margin-bottom: 40px;
+
+                    &:first-child {
+                        .visual {
+                            min-height: 170px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+html[data-useragent*='rv:11'], html[data-useragent*='MSIE'] {
+    section {
+        #all-posts {
+            .articles {
+                @include flex();
+                @include flex-wrap(wrap);
+
+                .category-item {
+                    margin: 0 2% 70px;
+                    width: 21%;
+
+                    &:first-child {
+                        .visual {
+                            min-height: 170px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
