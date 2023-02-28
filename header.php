@@ -131,13 +131,27 @@
 
                     <?php if ( has_nav_menu( 'header' ) ) : ?>
                         <nav class="main-navigation" aria-label="Top Menu">
-                            <div class="mobile-handle"><span></span></div>
+                        
+                            <a class="get-demo" href="#">Get Demo</a>
+                            <div class="mobile-handle">
+                                <span></span>
+                            </div>
                             <div class="menu-container">
                                 <div class="mobile-head">
                                     <a href="<?php site_url() ?>" class="mobile-logo"><?php bloginfo( "name" ) ?></a>
                                     <span class="close-menu"></span>
                                 </div>
-
+                                <div class="login-menu-container nav-mobile">
+                                <?php
+                                wp_nav_menu(
+                                    array(
+                                        'theme_location' => 'custom-header',
+                                        'menu_class'     => 'login-menu',
+                                        'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                    )
+                                );
+                                ?>
+                    			</div>
                                 <?php
                                 wp_nav_menu(
                                     array(
@@ -163,17 +177,6 @@
                                     );
                                     ?>
                                 </div>
-								<div class="login-menu-container nav-mobile">
-                                <?php
-                                wp_nav_menu(
-                                    array(
-                                        'theme_location' => 'custom-header',
-                                        'menu_class'     => 'login-menu',
-                                        'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                                    )
-                                );
-                                ?>
-                    			</div>
                             </div>
                         </nav>
 					<div class="login-menu-container">

@@ -85,6 +85,12 @@ div#div2 img {
     transform: translateX(-200%);
   }
 }
+
+@media (max-width: 768px) {
+div#div1 div, div#div2 div {
+    margin: 5px;
+}
+}
 </style>
 
 <script>

@@ -40,9 +40,9 @@
   </div>
 </div> <?php
     }
-?> 
-<? $departments = get_field('departments'); ?>
-<section id="departments">
+?> <?php
+$departments = get_field('departments');
+?> <section id="departments">
   <div class="inner">
     <h3> <?= $departments['headline'] ?> </h3>
     <p class="dept-sub"> <?= $departments['sub_headline'] ?> </p>
@@ -122,37 +122,61 @@
     }
   </style>
 <script>
-const boxes = document.querySelectorAll('.box');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-let currentIndex = 0;
+  const boxes = document.querySelectorAll('.box');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  let clickCount = 0;
 
-const updateBoxColors = () => {
-  for (let i = 0; i < boxes.length; i++) {
-    if (i === currentIndex) {
-      boxes[i].classList.add('red');
+  nextBtn.addEventListener('click', () => {
+    clickCount++;
+
+    if (clickCount === 1) {
+      boxes[0].classList.remove('red');
+      boxes[1].classList.remove('blue');
+      boxes[2].classList.remove('blue');
+      boxes[1].classList.add('red');
+      boxes[0].classList.add('blue');
+      boxes[2].classList.add('blue');
+    } else if (clickCount === 2) {
+      boxes[0].classList.remove('red');
+      boxes[1].classList.remove('red');
+      boxes[2].classList.remove('blue');
+      boxes[2].classList.add('red');
+      boxes[0].classList.add('blue');
+      boxes[1].classList.add('blue');
     } else {
-      boxes[i].classList.remove('red');
+      boxes[0].classList.add('red');
+      boxes[1].classList.remove('blue');
+      boxes[2].classList.remove('red');
+      clickCount = 0;
     }
+  });
 
-    if (i === (currentIndex + 1) % boxes.length || i === (currentIndex - 1 + boxes.length) % boxes.length) {
-      boxes[i].classList.add('blue');
+  prevBtn.addEventListener('click', () => {
+    clickCount--;
+
+    if (clickCount === 0) {
+      boxes[0].classList.add('red');
+      boxes[1].classList.remove('blue');
+      boxes[1].classList.remove('red');
+      boxes[2].classList.remove('red');
+    } else if (clickCount === -1) {
+      boxes[0].classList.remove('blue');
+      boxes[1].classList.remove('red');
+      boxes[2].classList.remove('red');
+      boxes[1].classList.add('blue');
+      boxes[0].classList.add('red');
+      boxes[2].classList.add('blue');
+      clickCount = 2;
     } else {
-      boxes[i].classList.remove('blue');
+      boxes[0].classList.remove('red');
+      boxes[1].classList.remove('blue');
+      boxes[2].classList.remove('red');
+      boxes[2].classList.add('blue');
+      boxes[0].classList.add('blue');
+      boxes[1].classList.add('red');
     }
-  }
-}
-
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % boxes.length;
-  updateBoxColors();
-});
-
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + boxes.length) % boxes.length;
-  updateBoxColors();
-});
-
+  });
 </script>
   <script>
 (function($) {
@@ -165,7 +189,7 @@ prevBtn.addEventListener('click', () => {
     event.preventDefault();
     clickCount++;
     if (clickCount === 1) {
-    currentBlock = currentBlock === 0 ? totalBlocks - 1 : currentBlock - 1;
+    currentBlock = currentBlock === 0 ? totalBlocks - 3 : currentBlock - 3;
     clickCount = 0;
     }
     showBlock();
@@ -220,10 +244,9 @@ prevBtn.addEventListener('click', () => {
     })(jQuery);
   </script>
    </section>
-
-
+   
 </section> <?php $happy_customers = get_field('happy_customers'); ?> <section id="happy" style="background: url(
-				<?= $happy_customers['background_image'] ?>) no-repeat 50%/cover  rgb(0 0 0 / 35%); background-blend-mode: multiply;">
+				<?= $happy_customers['background_image'] ?>) no-repeat 50%/cover;">
   <div class="inner">
     <div class="contentBlock">
       <h3> <?= $happy_customers['headline'] ?> </h3> <?= $happy_customers['supporting_text'] ?> <a href="

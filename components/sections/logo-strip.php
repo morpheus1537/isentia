@@ -70,19 +70,19 @@ div#div2 img {
 
 @keyframes marquee {
   from {
-    transform: translateX(100%);
+    transform: translateX(-100%);
   }
   to {
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
 }
 
 @keyframes marquee2 {
   from {
-    transform: translateX(0%);
+    transform: translateX(-200%);
   }
   to {
-    transform: translateX(-200%);
+    transform: translateX(0%);
   }
 }
 </style>

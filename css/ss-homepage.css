@@ -591,10 +591,6 @@ p.dept-sub {
     color: #0E2041;
 }
 
-#departments .navigation {
-    margin-top: 60px;
-}
-
 
 @media only screen and (max-width: 980px) {
     section {
@@ -1343,6 +1339,60 @@ h2.process-heading {
     padding: 0px 15px 13px 15px;
     /* border-bottom: 3px solid #DFE3F3; */
 }
+
+
+/* .sectionTemplate.tabbedContentImage .sections .contentBlock h3:before {
+    content: "\f0f3";
+    color: #0E2041;
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    position: absolute;
+    left: -5px;
+    top: 0;
+    display: block;
+} */
+
+.sectionTemplate.tabbedContentImage .sections .section:nth-child(1) .contentBlock h3:before {
+    content: "\f0f3";
+    color: #0F3CDE;
+    font-family: Font Awesome\ 5 Free;
+    font-size: 42px;
+    font-weight: 900;
+    display: block;
+    margin-bottom: 30px;
+    }
+    
+    .sectionTemplate.tabbedContentImage .sections .section:nth-child(2) .contentBlock h3:before {
+        content: "\f200";
+        color: #0F3CDE;
+        font-family: Font Awesome\ 5 Free;
+        font-size: 42px;
+        font-weight: 900;
+        display: block;
+        margin-bottom: 30px;
+    }
+    
+    .sectionTemplate.tabbedContentImage .sections .section:nth-child(3) .contentBlock h3:before {
+        content: "\f1b2";
+        color: #0F3CDE;
+        font-family: Font Awesome\ 5 Free;
+        font-size: 42px;
+        font-weight: 900;
+        display: block;
+        margin-bottom: 30px;
+    }
+    
+    .sectionTemplate.tabbedContentImage .sections .section:nth-child(4) .contentBlock h3:before {
+        content: "\f0c1";
+        color: #0F3CDE;
+        font-family: Font Awesome\ 5 Free;
+        font-size: 42px;
+        font-weight: 900;
+        display: block;
+        margin-bottom: 30px;
+    }
+    
+    
 
 
 .sectionTemplate.tabbedContentImage .sectionNav span#section-1:before {
@@ -2128,7 +2178,7 @@ section#departments .departments .contentBlocks .contentBlock.active {
     -moz-opacity: 1;
     -khtml-opacity: 1;
     opacity: 1;
-    transition: all .4s ease-in-out
+    /* transition: all .4s ease-in-out */
 }
 
 section#departments .departments .departmentMenu {
@@ -2154,7 +2204,7 @@ section#departments .departments .departmentMenu .departmentItem {
     display: flex;
     align-items: center;
     cursor: pointer;
-    transition: all .3s ease-in-out
+    /* transition: all .3s ease-in-out */
 }
 
 section#departments .departments .departmentMenu .departmentItem span {
@@ -2176,7 +2226,7 @@ section#departments .departments .departmentMenu .departmentItem span:after {
     -moz-opacity: 0;
     -khtml-opacity: 0;
     opacity: 0;
-    transition: all .3s ease-in-out
+    /* transition: all .3s ease-in-out */
 }
 
 section#departments .departments .departmentMenu .departmentItem.active span:after {
@@ -2192,11 +2242,19 @@ section#departments .departments .departmentMenu .departmentItem:hover {
     color: #175bdf
 }
 
+#departments .navigation .next {
+    padding-left: 15px;
+}
+
 @media only screen and (max-width: 980px) {
 		section#departments {
 		padding-left: 15px!important;
 		padding-right: 15px!important;
 	}
+
+    .container-navigation .container {
+        display: none!important;
+    }
 	
 	#departments .departments .contentBlock h5 span {
     display: none!important;
@@ -2277,9 +2335,9 @@ section#happy {
     border-radius: 75px 75px 0px 0px;
 }
 
-section#happy h3, section#happy p {
+/* section#happy h3, section#happy p {
     color: #15141B;
-}
+} */
 
 section#happy p {
     font-size: 1.6em
@@ -2296,11 +2354,11 @@ section#happy .contentBlock {
     max-width: 750px;
     width: 60%;
     margin: 15px;
-    padding: 50px;
+    /* padding: 50px;
     background: rgba(247, 249, 252, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(2px);
-    border-radius: 10px;
+    border-radius: 10px; */
 }
 
 section#blockquote {

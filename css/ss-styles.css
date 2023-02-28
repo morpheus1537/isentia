@@ -204,10 +204,31 @@ span.menu-item-description {
     display: none;
 }
 
+a.get-demo {
+    display: none;
+}
+
 @media only screen and (max-width: 980px) {
     .login-menu-container {
     display: none;
 }
+
+nav.main-navigation {
+    display: flex;
+    align-items: center;
+}
+
+header .main-navigation a.get-demo {
+    display: block;
+    background: #0F3CDE;
+    border-radius: 2px;
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
 .login-menu-container.nav-mobile {
     display: block!important;
 }
